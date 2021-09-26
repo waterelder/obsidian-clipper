@@ -29,11 +29,5 @@
         "16": "icons/favicon-16x16.png",
         "48": "icons/favicon-48x48.png",
         "128": "icons/favicon-128x128.png"
-    },
-    "applications": {
-        "gecko": {
-            "id": "j@jplattel.nl",
-            "strict_min_version": "53.0"
-        }
     }
 }
