@@ -4,7 +4,7 @@
 // Then this script creates a new tab with a redirect that opens the
 // Obsidian vault with the specified note.
 
-const listener = (result) => {
+const listener = (clipAsNewNote, vault) => (result) => {
     // Remove listener to prevent trigger multiple times
     chrome.runtime.onMessage.removeListener(listener);
 
@@ -62,7 +62,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         const vault = clippingOptions.obsidianVaultName;
         const clipAsNewNote = clippingOptions.clipAsNewNote;
 
-        chrome.runtime.onMessage.addListener(listener)
+        chrome.runtime.onMessage.addListener(listener(clipAsNewNote, vault))
 
         chrome.tabs.executeScript(tab.id, {file: 'clip.js'}, () => {
             console.log("started clipping..")
