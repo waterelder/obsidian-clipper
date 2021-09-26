@@ -3,7 +3,7 @@
     "version": "1.2.5",
     "manifest_version": 2,
     "description": "A small chrome plugin that let's you easily clip things to Obsidian",
-    "homepage_url": "https://github.com/jplattel/obsidian-clipper",
+    "homepage_url": "https://github.com/waterelder/obsidian-clipper",
     "background": {
         "scripts": [
             "background.js"
