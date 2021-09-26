@@ -74,7 +74,7 @@ Clipped from [{title}]({url}) at {date}.`,
         var date = moment().format(options.dateFormat)
         var datetime = moment().format(options.datetimeFormat)
         var zettel = d.getFullYear().toString() + (d.getMonth()+1).toString() + d.getDate().toString() + d.getHours().toString() + d.getMinutes().toString() + d.getSeconds().toString(); 
-        var url = 'https://jplattel.github.io/obsidian-clipper/'
+        var url = 'https://obsidian.kalyna.tech/'
         var title = "Obsidian Clipper"
         var note = options.obsidianNoteFormat
         var noteName = options.obsidianNoteName
@@ -96,7 +96,7 @@ Clipped from [{title}]({url}) at {date}.`,
 
         if (options.clipAsNewNote) {
             note = note.replace(/\n/g, '%0A') // Encode the new line character
-            redirectUrl = `https://jplattel.github.io/obsidian-clipper/clip-to-new.html?vault=${options.obsidianVaultName}&note=${noteName}&content=${encodeURIComponent(note)}`            
+            redirectUrl = `https://obsidian.kalyna.tech/clip-to-new.html?vault=${options.obsidianVaultName}&note=${noteName}&content=${encodeURIComponent(note)}`            
         } else {
             // Get the clipping format
             var clipFormat = document.getElementById('obsidian_note_format').value
@@ -110,7 +110,7 @@ Clipped from [{title}]({url}) at {date}.`,
             document.getElementById('obsidian_note_format').value = clipFormat
             
             // Open redirect to open the specified note in Obsidian
-            redirectUrl = `https://jplattel.github.io/obsidian-clipper/clip.html?vault=${options.obsidianVaultName}&note=${noteName}`
+            redirectUrl = `https://obsidian.kalyna.tech/clip.html?vault=${options.obsidianVaultName}&note=${noteName}`
         }
         chrome.tabs.create({ url: redirectUrl , active: true});    
     });

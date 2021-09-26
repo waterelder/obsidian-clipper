@@ -41,10 +41,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
             console.log(noteName, note)
             // Redirect to page (which opens obsidian).
             if (clipAsNewNote) {
-                redirectUrl = `https://jplattel.github.io/obsidian-clipper/clip-to-new.html?vault=${vault}&note=${noteName}&content=${encodeURIComponent(note)}`
+                redirectUrl = `https://obsidian.kalyna.tech/obsidian/clip-to-new.html?vault=${vault}&note=${noteName}&content=${encodeURIComponent(note)}`
                 console.log(redirectUrl)
             } else {
-                redirectUrl = `https://jplattel.github.io/obsidian-clipper/clip.html?vault=${vault}&note=${noteName}`
+                redirectUrl = `https://obsidian.kalyna.tech/clip.html?vault=${vault}&note=${noteName}`
             }
 
             // Create and remove the extra tab:

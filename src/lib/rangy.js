@@ -1,4 +1,3 @@
-// https://raw.githubusercontent.com/timdown/rangy/1.3.0/lib/rangy-core.js
 /**
  * Rangy, a cross-browser JavaScript range and selection library
  * https://github.com/timdown/rangy
@@ -9,7 +8,7 @@
  * Build date: 10 May 2015
  */
 
-(function(factory, root) {
+ (function(factory, root) {
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module.
         define(factory);

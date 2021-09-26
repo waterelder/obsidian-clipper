@@ -1,6 +1,6 @@
 {
     "name": "Obsidian Clipper",
-    "version": "0.2.5",
+    "version": "0.2.5-f",
     "manifest_version": 2,
     "description": "A small chrome plugin that let's you easily clip things to Obsidian",
     "homepage_url": "https://github.com/jplattel/obsidian-clipper",
@@ -18,7 +18,8 @@
         "default_title": "Clip selection to Obsidian"
     },
     "permissions": [
-        "https://jplattel.github.io/obsidian-clipper/clip.html",
+        "https://obsidian.kalyna.tech/clip.html",
+        "https://obsidian.kalyna.tech/clip-to-new.html",
         "tabs",
         "activeTab",
         "clipboardWrite",
