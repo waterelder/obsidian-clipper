@@ -4,7 +4,15 @@
 // Then this script creates a new tab with a redirect that opens the
 // Obsidian vault with the specified note.
 
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.contextMenus.create({
+    title: "Save to Obsidian", 
+    contexts:["selection"], 
+    onclick: main
+});
+
+chrome.browserAction.onClicked.addListener(main)
+
+function main (tab) {
     chrome.tabs.executeScript(null, { file: "lib/webbrowser-polyfill.js" }, function() { // https://unpkg.com/webextension-polyfill@0.6.0/dist/browser-polyfill.js
     chrome.tabs.executeScript(null, { file: "lib/jquery.js" }, function() { // https://code.jquery.com/jquery-3.5.1.min.js
     chrome.tabs.executeScript(null, { file: "lib/rangy.js" }, function() { // https://raw.githubusercontent.com/timdown/rangy/1.3.0/lib/rangy-core.js
@@ -41,7 +49,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
             console.log(noteName, note)
             // Redirect to page (which opens obsidian).
             if (clipAsNewNote) {
-                redirectUrl = `https://obsidian.kalyna.tech/obsidian/clip-to-new.html?vault=${vault}&note=${noteName}&content=${encodeURIComponent(note)}`
+                redirectUrl = `https://obsidian.kalyna.tech/clip-to-new.html?vault=${vault}&note=${noteName}&content=${encodeURIComponent(note)}`
                 console.log(redirectUrl)
             } else {
                 redirectUrl = `https://obsidian.kalyna.tech/clip.html?vault=${vault}&note=${noteName}`
@@ -63,4 +71,4 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     });
     });
     });
-});
+};
