@@ -4,19 +4,7 @@
 // Then this script creates a new tab with a redirect that opens the
 // Obsidian vault with the specified note.
 
-function getword(info,tab) {
-    console.log("Word " + info.selectionText + " was clicked.");
-    chrome.tabs.create({  
-      url: "http://www.google.com/search?q=" + info.selectionText
-    });
-  }
-chrome.contextMenus.create({
-    title: "Save to Obsidian", 
-    contexts:["selection"], 
-    onclick: listener
-});
-
-function listener(result) {
+const listener = (result) => {
     // Remove listener to prevent trigger multiple times
     chrome.runtime.onMessage.removeListener(listener);
 
@@ -39,6 +27,14 @@ function listener(result) {
         setTimeout(function() { chrome.tabs.remove(obsidianTab.id) }, 1000);
     });
 };
+
+chrome.contextMenus.create({
+    title: "Save to Obsidian", 
+    contexts:["selection"], 
+    onclick: listener
+});
+
+
 
 chrome.browserAction.onClicked.addListener(function (tab) {
     chrome.tabs.executeScript(null, { file: "lib/webbrowser-polyfill.js" }, function() { // https://unpkg.com/webextension-polyfill@0.6.0/dist/browser-polyfill.js
